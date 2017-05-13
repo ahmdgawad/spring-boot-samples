@@ -3,6 +3,7 @@ package netgloo.models;
 import javax.transaction.Transactional;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * A DAO for the entity User is simply created by extending the CrudRepository
@@ -14,6 +15,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author netgloo
  */
 @Transactional
+@Repository("userDao")
 public interface UserDao extends CrudRepository<User, Long> {
 
   /**
@@ -22,5 +24,7 @@ public interface UserDao extends CrudRepository<User, Long> {
    * @param email the user email.
    */
   public User findByEmail(String email);
+
+  public User findByName(String name);
 
 } // class UserDao
